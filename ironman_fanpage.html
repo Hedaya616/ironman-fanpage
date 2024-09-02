@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iron Man Fan Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #1a1a1a;
+            color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        header {
+            background-color: #e23636;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 3em;
+        }
+        section {
+            width: 80%;
+            margin: 20px 0;
+        }
+        h2 {
+            color: #e23636;
+            border-bottom: 2px solid #e23636;
+            padding-bottom: 10px;
+        }
+        .quiz-container {
+            margin: 20px 0;
+        }
+        .quiz-container h3 {
+            margin-bottom: 10px;
+        }
+        .quiz-container input[type="button"] {
+            margin-top: 10px;
+            padding: 10px;
+            background-color: #e23636;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+        footer {
+            background-color: #333333;
+            width: 100%;
+            text-align: center;
+            padding: 20px 0;
+            position: fixed;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Iron Man Fan Page</h1>
+    </header>
+
+    <section>
+        <h2>About Iron Man</h2>
+        <p>Iron Man, also known as Tony Stark, is a billionaire industrialist and genius inventor who is the alter ego of one of the most iconic superheroes in the Marvel Universe. With his self-built powered suit of armor, Tony Stark has fought villains and saved the world countless times, becoming a founding member of the Avengers. Iron Man is not only known for his heroics but also for his wit, intelligence, and complex personality.</p>
+    </section>
+
+    <section class="quiz-container">
+        <h2>Iron Man Quiz</h2>
+        <form id="quizForm">
+            <h3>1. What is the name of Tony Stark's AI assistant?</h3>
+            <input type="radio" name="q1" value="JARVIS"> JARVIS<br>
+            <input type="radio" name="q1" value="FRIDAY"> FRIDAY<br>
+            <input type="radio" name="q1" value="EDITH"> EDITH<br>
+
+            <h3>2. What is the name of the element Tony creates to replace the palladium in his chest reactor?</h3>
+            <input type="radio" name="q2" value="Vibranium"> Vibranium<br>
+            <input type="radio" name="q2" value="Adamantium"> Adamantium<br>
+            <input type="radio" name="q2" value="New Element"> New Element<br>
+
+            <h3>3. In which movie does Iron Man first appear?</h3>
+            <input type="radio" name="q3" value="Iron Man 2"> Iron Man 2<br>
+            <input type="radio" name="q3" value="The Avengers"> The Avengers<br>
+            <input type="radio" name="q3" value="Iron Man"> Iron Man<br>
+
+            <input type="button" value="Submit Quiz" onclick="checkQuiz()">
+        </form>
+        <p id="quizResult"></p>
+    </section>
+
+    <footer>
+        <p>Created by a Marvel Enthusiast</p>
+    </footer>
+
+    <script>
+        function checkQuiz() {
+            var score = 0;
+            var total = 3;
+
+            var q1 = document.querySelector('input[name="q1"]:checked');
+            var q2 = document.querySelector('input[name="q2"]:checked');
+            var q3 = document.querySelector('input[name="q3"]:checked');
+
+            if (q1 && q1.value === "JARVIS") score++;
+            if (q2 && q2.value === "New Element") score++;
+            if (q3 && q3.value === "Iron Man") score++;
+
+            var result = document.getElementById("quizResult");
+            result.textContent = "You scored " + score + " out of " + total;
+        }
+    </script>
+
+</body>
+</html>
